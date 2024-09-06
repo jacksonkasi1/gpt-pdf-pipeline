@@ -4,7 +4,7 @@
   "description": "Serverless aws-nodejs-typescript template",
   "author": "jacksonkasi",
   "license": "MIT",
-  "main": "src/handler.ts",
+  "main": "src/index.ts",
   "scripts": {
     "dev": "serverless offline start",
     "deploy": "serverless deploy",

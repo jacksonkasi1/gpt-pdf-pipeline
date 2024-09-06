@@ -16,14 +16,14 @@ plugins:
   - serverless-offline # used for local execution
 
 functions:
-  app:
-  handler: src/handler.handler
-  events:
-    - http:
-        path: /
-        method: any
-        cors: true
-    - http:
-        path: /{proxy+}
-        method: any
-        cors: true
+  server:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true

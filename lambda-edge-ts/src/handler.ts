@@ -17,7 +17,7 @@ app.use("*", cors());
 /**
  * Ping Pong
  */
-app.use("/", async (c) => c.text("Hello World "));
+app.use("/", async (c) => c.text(`Hello World ^ version = ${process.env.NODE_ENV} ` ));
 app.get("/ping", (c) => c.json({ ping: "pong" }, 200));
 
 const port = process.env.PORT || 3000;
