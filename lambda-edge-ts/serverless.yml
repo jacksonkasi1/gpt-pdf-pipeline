@@ -15,6 +15,10 @@ provider:
 plugins:
   - serverless-offline # used for local execution
 
+custom:
+  serverless-offline:
+    httpPort: 5000
+
 functions:
   server:
     handler: src/handler.handler
