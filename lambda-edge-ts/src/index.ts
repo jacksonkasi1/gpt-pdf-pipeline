@@ -14,13 +14,18 @@ const app = new Hono({ strict: false });
 app.use("*", logger());
 app.use("*", cors());
 
+app.use("/", async (c) =>
+  c.text(`Hello World & version = ${process.env.VERSION} `),
+);
+
 /**
  * Ping Pong
  */
-app.use("/", async (c) => c.text(`Hello World ^ version = ${process.env.NODE_ENV} `));
 app.get("/ping", (c) => c.json({ ping: "pong" }, 200));
 
+
 const port = process.env.PORT || 5000;
+
 console.log(`Starting server on port http://127.0.0.1:${port} 🚀`);
 
 export const handler = handle(app);
