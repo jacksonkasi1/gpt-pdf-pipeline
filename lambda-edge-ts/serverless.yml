@@ -1,19 +1,18 @@
 service: lambda-edge-ts
-# frameworkVersion: "4"
 
 provider:
   name: aws
   runtime: nodejs20.x
   region: ap-south-1
-  memorySize: 1024 # repository wide Lambda memory size
+  memorySize: 1024
   stage: production
-  timeout: 30 # repository wide Lambda timeout
-  environment: # repository wide Lambda env variables
+  timeout: 300
+  environment:
     NODE_ENV: production
     VERSION: v20.0
 
 plugins:
-  - serverless-offline # used for local execution
+  - serverless-offline
 
 custom:
   serverless-offline:
@@ -22,12 +21,9 @@ custom:
 functions:
   server:
     handler: ./src/index.handler
+    # Local development HTTP event
     events:
       - http:
           path: /
           method: ANY
           cors: true
-      # - http:
-      #     path: /{proxy+}
-      #     method: ANY
-      #     cors: true
