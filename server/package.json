@@ -1,0 +1,17 @@
+{
+  "name": "gpt-pdf-pipeline-server",
+  "scripts": {
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "remove": "wrangler delete"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.9.5",
+    "drizzle-orm": "^0.33.0",
+    "hono": "^4.5.11"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "wrangler": "^3.57.2"
+  }
+}
